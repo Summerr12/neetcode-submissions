@@ -1,16 +1,16 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        """
-        n ascending array
+        left = 0
+        right = len(nums)-1
 
-        """
-        if len(nums) == 1: return nums[0]
-
-        min = nums[0]
-        for n in nums[1:]:
-            if min > n:
-                min = n
-
-        return min
+        while left < right:
+            midpt = (left + right) //2
+            if nums[midpt] > nums[right]:
+                left = midpt+1
+            else:
+                right = midpt
+            # print("left: ", left, " right: ", right, " midpt: ", midpt)
+                
+        return nums[left]
 
         
